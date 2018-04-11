@@ -16,7 +16,9 @@ import FetchLocation from './components/FetchLocation';
 
 export default class App extends Component<Props> {
   getUserLocationHandler = () => {
-
+    navigator.geolocation.getCurrentPosition(position => {
+      console.log(position);
+    }, err => console.log(err));
   }
 
   render() {
