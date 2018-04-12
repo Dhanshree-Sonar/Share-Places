@@ -11,6 +11,7 @@ import {
   Text,
   View
 } from 'react-native';
+import openMap from 'react-native-open-maps';
 
 import FetchLocation from './components/FetchLocation';
 
@@ -18,8 +19,10 @@ export default class App extends Component<Props> {
   getUserLocationHandler = () => {
     navigator.geolocation.getCurrentPosition(position => {
       console.log(position);
+      openMap(position)
     }, err => console.log(err));
   }
+
 
   render() {
     return (
