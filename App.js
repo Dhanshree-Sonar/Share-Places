@@ -14,6 +14,7 @@ import {
 import openMap from 'react-native-open-maps';
 
 import FetchLocation from './components/FetchLocation';
+import InputSection from './components/InputSection';
 
 export default class App extends Component<Props> {
   getUserLocationHandler = () => {
@@ -27,6 +28,7 @@ export default class App extends Component<Props> {
   render() {
     return (
       <View style={styles.container}>
+        <InputSection/>
         <FetchLocation onGetLocation={this.getUserLocationHandler}/>
       </View>
     );
@@ -39,5 +41,5 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center"
-  }
+  },
 });
