@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
-import { TextInput } from 'react-native';
+import {
+  TextInput,
+  StyleSheet,
+} from 'react-native';
 
 export default class InputBox extends Component {
   constructor(props) {
@@ -10,10 +13,21 @@ export default class InputBox extends Component {
   render() {
     return (
       <TextInput
-        style={{height: 40, borderColor: 'gray', borderWidth: 1}}
+        style={styles.inputbox}
         onChangeText={(text) => this.setState({text})}
         value={this.state.text}
       />
     );
   }
 }
+
+
+const styles = StyleSheet.create({
+  inputbox: {
+    marginLeft: 10,
+    height: 30,
+    width: 200,
+    borderColor: 'grey',
+    borderWidth: 1,
+  },
+});
