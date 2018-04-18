@@ -1,18 +1,34 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import {
+    View,
+    Text,
+    StyleSheet
+} from 'react-native';
 import InputBox from './InputBox';
 
 export default class InputSection extends Component {
   render() {
     return (
-      <View>
-        <View>
-          <Text>From:</Text><InputBox/>
+      <View style={styles.container}>
+        <View style={styles.input}>
+          <Text>From:</Text><InputBox />
         </View>
-        <View>
-          <Text>To:</Text><InputBox/>
+        <View style={styles.input}>
+          <Text>To:</Text><InputBox />
         </View>
       </View>
     );
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    alignItems: "flex-start",
+    justifyContent: "flex-start",
+    margin: 20,
+  },
+  input: {
+    flexDirection: "row",
+    margin: 2,
+  },
+});
