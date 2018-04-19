@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {
   TextInput,
+  Button,
   StyleSheet,
 } from 'react-native';
 
@@ -12,11 +13,14 @@ export default class InputBox extends Component {
 
   render() {
     return (
-      <TextInput
-        style={styles.inputbox}
-        onChangeText={(text) => this.setState({text})}
-        value={this.state.text}
-      />
+      [
+        <TextInput
+          style={styles.inputbox}
+          onChangeText={(text) => this.setState({text})}
+          value={this.state.text}
+        />,
+        <Button title="Get Geocode" />
+      ]
     );
   }
 }
