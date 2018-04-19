@@ -23,6 +23,7 @@ export default class InputBox extends Component {
        console.log(responseJson);
        console.log(responseJson[0].lat);
        console.log(responseJson[0].lon);
+       console.log(responseJson[0].display_name);
     })
     .catch((error) => {
       console.error(error);
