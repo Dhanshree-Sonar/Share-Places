@@ -11,6 +11,25 @@ export default class InputBox extends Component {
     this.state = { text: 'Enter Address' };
   }
 
+  onGetGeocode = () => {
+    console.log(this.state.text);
+
+    url = 'https://nominatim.openstreetmap.org/?format=json&addressdetails=1&q=' +
+          this.state.text + '&limit=1'
+    console.log(url);
+    fetch(url)
+    .then((response) => response.json())
+    .then((responseJson) => {
+       console.log(responseJson);
+       console.log(responseJson[0].lat);
+       console.log(responseJson[0].lon);
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+
+  }
+
   render() {
     return (
       [
@@ -19,7 +38,7 @@ export default class InputBox extends Component {
           onChangeText={(text) => this.setState({text})}
           value={this.state.text}
         />,
-        <Button title="Get Geocode" />
+        <Button title="Get Geocode" onPress={this.onGetGeocode} />
       ]
     );
   }
